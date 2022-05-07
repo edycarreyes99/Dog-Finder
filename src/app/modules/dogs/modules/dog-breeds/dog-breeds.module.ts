@@ -11,6 +11,9 @@ import { BreedItemComponent } from './components/breed-item/breed-item.component
     BreedsListComponent,
     BreedItemComponent
   ],
+  exports: [
+    BreedsListComponent
+  ],
   imports: [
     CommonModule,
     DogBreedsRoutingModule

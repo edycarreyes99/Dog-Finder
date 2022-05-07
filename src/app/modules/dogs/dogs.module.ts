@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DogsRoutingModule } from './dogs-routing.module';
 import { DogsViewComponent } from './components/dogs-view/dogs-view.component';
 import { FavoriteBreedComponent } from './components/favorite-breed/favorite-breed.component';
+import {DogBreedsModule} from "./modules/dog-breeds/dog-breeds.module";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FavoriteBreedComponent } from './components/favorite-breed/favorite-bre
   ],
   imports: [
     CommonModule,
-    DogsRoutingModule
+    DogsRoutingModule,
+    DogBreedsModule
   ]
 })
 export class DogsModule { }
