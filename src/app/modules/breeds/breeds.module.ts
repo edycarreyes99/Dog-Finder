@@ -9,6 +9,7 @@ import {BreedsListComponent} from "./components/breeds-list/breeds-list.componen
 import {BreedItemComponent} from "./components/breed-item/breed-item.component";
 import {MatCardModule} from "@angular/material/card";
 import {BreedsService} from "./services/breeds.service";
+import {BreedImagesService} from "../../core/services/breed-images/breed-images.service";
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import {BreedsService} from "./services/breeds.service";
     SubBreedsModule,
     MatCardModule
   ],
-  providers: [BreedsService]
+  providers: [BreedsService, BreedImagesService]
 })
 export class BreedsModule {
 }

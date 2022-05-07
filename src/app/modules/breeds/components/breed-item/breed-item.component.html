@@ -1,8 +1,8 @@
 <div class="breed-item-component">
-  <mat-card class="favorite-breed-card pb-0">
+  <mat-card class="pb-0">
     <mat-card-header>
       <img
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        [src]="breed?.image"
         alt="Breed avatar"
         mat-card-avatar
         class="breed-avatar">
@@ -15,6 +15,11 @@
         </strong>
       </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img
+      class="mx-auto img-fluid"
+      mat-card-xl-image
+      [src]="breed?.image"
+      mat-card-image
+      [alt]="breed?.name + ' photo'">
   </mat-card>
 </div>
