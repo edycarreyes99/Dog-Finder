@@ -40,7 +40,6 @@ export class BreedsListComponent implements OnInit {
     return new Promise<Breed[]>(async (resolve, rejects) => {
       await this.breedsService.index().subscribe(async (response) => {
         await this.buildBreedObjects(response.message).then((mappedBreeds) => {
-          console.log('mappedBreeds', mappedBreeds);
           this.breeds = mappedBreeds;
           resolve(mappedBreeds);
         }).catch((error) => {

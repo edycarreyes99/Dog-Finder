@@ -1,0 +1,9 @@
+.breed-item-component {
+  .breed-avatar {
+    background-size: cover;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

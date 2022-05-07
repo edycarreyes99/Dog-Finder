@@ -1,9 +1,18 @@
 <div class="breed-item-component">
   <mat-card class="favorite-breed-card pb-0">
     <mat-card-header>
-      <mat-card-title>Your Favorite Breed is:</mat-card-title>
+      <img
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Breed avatar"
+        mat-card-avatar
+        class="breed-avatar">
+      <mat-card-title class="text-capitalize">
+        {{breed?.name}}
+      </mat-card-title>
       <mat-card-subtitle>
-        <strong>Dog Breed</strong>
+        <strong>
+          {{breed?.subBreeds?.length}} sub-breeds
+        </strong>
       </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
