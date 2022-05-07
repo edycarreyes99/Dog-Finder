@@ -7,6 +7,7 @@ import { FavoriteBreedComponent } from './components/favorite-breed/favorite-bre
 import {SubBreedsModule} from "./modules/sub-breeds/sub-breeds.module";
 import {BreedsListComponent} from "./components/breeds-list/breeds-list.component";
 import {BreedItemComponent} from "./components/breed-item/breed-item.component";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {BreedItemComponent} from "./components/breed-item/breed-item.component";
   imports: [
     CommonModule,
     BreedsRoutingModule,
-    SubBreedsModule
+    SubBreedsModule,
+    MatCardModule
   ]
 })
 export class BreedsModule { }
