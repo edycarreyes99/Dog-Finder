@@ -1,8 +1,8 @@
 import {Observable} from 'rxjs';
 
 export interface ICRUD<T, I> {
-  index(): Observable<I>;
+  index(changeUrl?: string): Observable<I>;
 
-  show?(id: string): Observable<T>;
+  show?(id: string, changeUrl?: string): Observable<T>;
 
 }

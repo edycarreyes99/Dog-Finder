@@ -10,11 +10,17 @@ export abstract class CRUD<T, I> implements ICRUD<T, I> {
   ) {
   }
 
-  index(): Observable<I> {
+  index(changeUrl?: string): Observable<I> {
+    if (changeUrl) {
+      this.url = changeUrl;
+    }
     return this.http.get<I>(`${this.url}`, {});
   }
 
-  show(id: string): Observable<T> {
+  show(id: string, changeUrl?: string): Observable<T> {
+    if(changeUrl) {
+      this.url = changeUrl;
+    }
     return this.http.get<T>(`${this.url}/${id}`);
   }
 }
