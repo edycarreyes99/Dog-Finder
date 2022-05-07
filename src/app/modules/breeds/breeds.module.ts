@@ -10,6 +10,7 @@ import {BreedItemComponent} from "./components/breed-item/breed-item.component";
 import {MatCardModule} from "@angular/material/card";
 import {BreedsService} from "./services/breeds.service";
 import {BreedImagesService} from "../../core/services/breed-images/breed-images.service";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {BreedImagesService} from "../../core/services/breed-images/breed-images.
     CommonModule,
     BreedsRoutingModule,
     SubBreedsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [BreedsService, BreedImagesService]
 })
