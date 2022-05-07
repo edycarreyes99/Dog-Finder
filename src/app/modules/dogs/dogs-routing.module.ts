@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {DogsViewComponent} from "./components/dogs-view/dogs-view.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: DogsViewComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DogsRoutingModule { }
+export class DogsRoutingModule {
+}
