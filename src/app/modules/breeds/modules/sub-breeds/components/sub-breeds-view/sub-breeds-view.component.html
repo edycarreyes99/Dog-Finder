@@ -4,7 +4,13 @@
       <mat-icon class="text-dark">arrow_back</mat-icon>
     </button>
     <div class="d-flex align-items-center">
-      <img [src]="avatar" alt="Breed Avatar" class="rounded-circle mr-5" width="200" height="200">
+      <img
+        nz-image
+        [nzSrc]="avatar"
+        nzDisablePreview
+        nzPlaceholder="../../../../../../assets/img/logo-blur.jpeg"
+        alt="Breed Avatar"
+        class="rounded-circle mr-5" width="200" height="200">
       <div class="ms-3 d-inline">
         <h1 class="text-capitalize">{{ parentBreed }}</h1>
         <h2>{{subBreedsQty}} sub-breeds</h2>

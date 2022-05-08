@@ -12,6 +12,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {BreedsModule} from "../../breeds.module";
 import {BreedsCommonModule} from "../../../common/breeds-common/breeds-common.module";
 import {OverlayModule} from "@angular/cdk/overlay";
+import {NzImageModule} from "ng-zorro-antd/image";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {OverlayModule} from "@angular/cdk/overlay";
     MatIconModule,
     MatTooltipModule,
     MatDividerModule,
-    BreedsCommonModule
+    BreedsCommonModule,
+    NzImageModule
   ]
 })
 export class SubBreedsModule {

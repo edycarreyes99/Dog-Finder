@@ -2,7 +2,10 @@
   <mat-card (click)="showBreedInfo()">
     <mat-card-header>
       <img
-        [src]="breed?.image"
+        nz-image
+        nzDisablePreview
+        [nzSrc]="getBreedImage()"
+        nzPlaceholder="../../../../../../assets/img/logo-blur.jpeg"
         alt="Breed avatar"
         mat-card-avatar
         class="breed-avatar">
