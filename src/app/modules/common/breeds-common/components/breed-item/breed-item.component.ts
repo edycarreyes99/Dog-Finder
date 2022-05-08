@@ -6,6 +6,8 @@ import {
   EXISTS_FAVORITE_BREED_LS, FAVORITE_BREED_IMAGE_LS, FAVORITE_BREED_LS,
   FAVORITE_PARENT_BREED_LS
 } from "../../../../../core/constants/local-storage.constants";
+import {MatDialog} from "@angular/material/dialog";
+import {BreedImagesModalComponent} from "../breed-images-modal/breed-images-modal.component";
 
 @Component({
   selector: 'app-breed-item',
@@ -20,7 +22,8 @@ export class BreedItemComponent implements OnInit {
 
   constructor(
     private readonly breedImageService: BreedImagesService,
-    private router: Router
+    private router: Router,
+    private matDialog: MatDialog
   ) {
   }
 
@@ -40,6 +43,15 @@ export class BreedItemComponent implements OnInit {
           avatar: this.breed?.image,
           parentBreed: this.breed?.name
         }
+      });
+    } else {
+      const data: any = {
+        parentBreedName: this.parentBreed,
+        breedName: this.breed?.name,
+        isSubBreed: this.isSubBreed
+      };
+      const dialogRef = this.matDialog.open(BreedImagesModalComponent, {
+        data
       });
     }
   }

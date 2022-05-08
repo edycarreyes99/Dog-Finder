@@ -1,0 +1,20 @@
+<div class="breed-images-modal-component">
+  <h2 mat-dialog-title class="text-capitalize">
+    {{breedName}}
+  </h2>
+  <mat-dialog-content class="d-flex justify-content-center align-items-center p-5">
+    <div class="loader-container" *ngIf="isLoading">
+      <ng-template #indicatorTemplate>
+        <i nz-icon nzType="loading"></i>
+      </ng-template>
+      <nz-spin nzSimple [nzIndicator]="indicatorTemplate">
+      </nz-spin>
+    </div>
+    <nz-image-group *ngIf="!isLoading">
+      <img *ngFor="let image of images" nz-image width="300" [nzSrc]="image" class="m-2 rounded" nzPlaceholder="../../../../../../assets/img/logo-blur.jpeg"/>
+    </nz-image-group>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close="true">Close</button>
+  </mat-dialog-actions>
+</div>

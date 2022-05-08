@@ -29,12 +29,13 @@ export class BreedImagesService {
   }
 
   getManyImages(breed: string, subBreed?: string, imagesQty: number = 3): Observable<BreedResponse<string[]>> {
-    this.url = environment.breedsAPIUrl;
+    let url = environment.breedsAPIUrl;
     if (subBreed) {
-      this.url = this.url + 'breed/' + breed + `/${subBreed}/` + 'images/random/' + imagesQty;
+      url = url + 'breed/' + breed + `/${subBreed}/` + 'images/random/' + imagesQty;
     } else {
-      this.url = this.url + 'breed/' + breed + '/images/random/' + imagesQty;
+      url = url + 'breed/' + breed + '/images/random/' + imagesQty;
     }
-    return this.http.get<BreedResponse<string[]>>(this.url + 'breed/' + breed + '/images/' + imagesQty);
+    console.log('URl is: ', url)
+    return this.http.get<BreedResponse<string[]>>(url);
   }
 }
