@@ -4,6 +4,7 @@ import {
   FAVORITE_BREED_LS,
   FAVORITE_PARENT_BREED_LS
 } from "../../../../core/constants/local-storage.constants";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-favorite-breed',
@@ -17,7 +18,9 @@ export class FavoriteBreedComponent implements OnInit {
   favoriteBreedImage: string = '';
 
 
-  constructor() {
+  constructor(
+    private nzMessageService: NzMessageService
+  ) {
   }
 
   ngOnInit(): void {
@@ -31,5 +34,8 @@ export class FavoriteBreedComponent implements OnInit {
 
   toggleFavoriteBreed(): void {
     localStorage.clear();
+    this.nzMessageService.success('Removed from favorites', {
+      nzDuration: 5000
+    });
   }
 }

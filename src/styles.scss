@@ -9,3 +9,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #f8f9fa;
 }
+
+#cdk-overlay-0 > nz-message-container > div > nz-message > div > div {
+  margin-top: 1.5rem !important;
+}

@@ -14,6 +14,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {BreedsCommonModule} from "../common/breeds-common/breeds-common.module";
 import {OverlayModule} from "@angular/cdk/overlay";
 import {NzImageModule} from "ng-zorro-antd/image";
+import {NzMessageModule} from "ng-zorro-antd/message";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {NzImageModule} from "ng-zorro-antd/image";
     BreedsCommonModule,
     MatCardModule,
     MatButtonModule,
-    NzImageModule
+    NzImageModule,
+    NzMessageModule
   ],
   exports: [],
   providers: [BreedsService, BreedImagesService]

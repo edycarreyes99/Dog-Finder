@@ -8,6 +8,7 @@ import {
 } from "../../../../../core/constants/local-storage.constants";
 import {MatDialog} from "@angular/material/dialog";
 import {BreedImagesModalComponent} from "../breed-images-modal/breed-images-modal.component";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-breed-item',
@@ -23,7 +24,8 @@ export class BreedItemComponent implements OnInit {
   constructor(
     private readonly breedImageService: BreedImagesService,
     private router: Router,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private nzMessageService: NzMessageService
   ) {
   }
 
@@ -71,6 +73,9 @@ export class BreedItemComponent implements OnInit {
       }
       localStorage.setItem(FAVORITE_BREED_LS, `${this.breed?.name}`);
       localStorage.setItem(FAVORITE_BREED_IMAGE_LS, `${this.breed?.image}`);
+      this.nzMessageService.success(`${this.isSubBreed ? this.breed?.name + ' ' + this.parentBreed : this.breed?.name} Marked as favorite`, {
+        nzDuration: 5000
+      });
     }, 200)
   }
 }
