@@ -1,0 +1,18 @@
+<div class="sub-breeds-view-component">
+  <div class="d-flex  mt-5">
+    <button mat-icon-button color="warn" matTooltip="Go Back" routerLink="../">
+      <mat-icon class="text-dark">arrow_back</mat-icon>
+    </button>
+    <div class="d-flex align-items-center">
+      <img [src]="avatar" alt="Breed Avatar" class="rounded-circle mr-5" width="200">
+      <div class="ms-3 d-inline">
+        <h1 class="text-capitalize">{{ parentBreed }}</h1>
+        <h2>{{subBreedsQty}} sub-breeds</h2>
+      </div>
+    </div>
+  </div>
+  <h1 class="mt-4 text-center">Sub-Breeds List:</h1>
+  <mat-divider class="mt-2"></mat-divider>
+
+  <app-breeds-list [isSubBreed]="true" [parentBreed]="parentBreed" [subBreed]="parentBreed"></app-breeds-list>
+</div>

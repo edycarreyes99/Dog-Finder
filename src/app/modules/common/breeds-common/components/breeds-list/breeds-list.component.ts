@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {BreedsService} from "../../services/breeds.service";
-import {Breed} from "../../models/breed";
+import {Component, Input, OnInit} from '@angular/core';
+import {BreedsService} from "../../../../breeds/services/breeds.service";
+import {Breed} from "../../../../breeds/models/breed";
 
 @Component({
   selector: 'app-breeds-list',
@@ -8,6 +8,11 @@ import {Breed} from "../../models/breed";
   styleUrls: ['./breeds-list.component.scss']
 })
 export class BreedsListComponent implements OnInit {
+  // Input Components
+  @Input() isSubBreed: boolean = false;
+  @Input() parentBreed: string | undefined;
+  @Input() subBreed: string | undefined;
+
   // Component Variables
   breeds: Breed[] = [];
 
@@ -20,12 +25,13 @@ export class BreedsListComponent implements OnInit {
     await this.getBreeds();
   }
 
-  async buildBreedObjects(breeds: Record<string, string[]>): Promise<Breed[]> {
+  async buildBreedObjects(breeds: any): Promise<Breed[]> {
     return new Promise<Breed[]>(async (resolve, reject) => {
-      await Promise.all(Object.keys(breeds).map(async (key) => {
+      const array: any = !this.isSubBreed ? Object.keys(breeds) : breeds;
+      await Promise.all(array.map(async (key: string) => {
         const breed: Breed = {
           name: key,
-          subBreeds: breeds[key]
+          subBreeds: !this.isSubBreed ? (breeds as Record<string, string[]>)[key] : []
         };
         return breed;
       })).then((mappedBreeds) => {
@@ -38,7 +44,8 @@ export class BreedsListComponent implements OnInit {
 
   async getBreeds(): Promise<Breed[]> {
     return new Promise<Breed[]>(async (resolve, rejects) => {
-      await this.breedsService.index().subscribe(async (response) => {
+      await this.breedsService.index(this.parentBreed, this.subBreed).subscribe(async (response) => {
+        console.log(response);
         await this.buildBreedObjects(response.message).then((mappedBreeds) => {
           this.breeds = mappedBreeds;
           resolve(mappedBreeds);

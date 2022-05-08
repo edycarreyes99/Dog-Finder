@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-1 col-md-6 col-lg-3 my-4" *ngFor="let breed of breeds">
       <app-breed-item
-        [breed]="breed">
+        [breed]="breed"
+        [isSubBreed]="isSubBreed"
+        [parentBreed]="parentBreed">
       </app-breed-item>
     </div>
   </div>

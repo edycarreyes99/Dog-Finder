@@ -1,5 +1,5 @@
 <div class="breed-item-component">
-  <mat-card>
+  <mat-card (click)="showBreedInfo()">
     <mat-card-header>
       <img
         [src]="breed?.image"
@@ -7,9 +7,9 @@
         mat-card-avatar
         class="breed-avatar">
       <mat-card-title class="text-capitalize">
-        {{breed?.name}}
+        {{isSubBreed ? breed?.name + ' ' + parentBreed : breed?.name}}
       </mat-card-title>
-      <mat-card-subtitle>
+      <mat-card-subtitle *ngIf="!isSubBreed">
         <strong>
           {{breed?.subBreeds?.length}} sub-breeds
         </strong>
