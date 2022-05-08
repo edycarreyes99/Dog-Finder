@@ -1,11 +1,22 @@
 <div class="favorite-breed-component pt-5">
-  <mat-card class="favorite-breed-card pb-0">
-    <mat-card-header>
-      <mat-card-title>Your Favorite Breed is:</mat-card-title>
+  <mat-card class="favorite-breed-card">
+    <mat-card-title-group>
+      <mat-card-title>
+        Your favorite breed is:
+      </mat-card-title>
       <mat-card-subtitle>
-        <strong>Dog Breed</strong>
+        <h2 class="text-secondary text-capitalize">
+          <strong>
+            {{ isSubBreed ? favoriteBreedName + ' ' + favoriteParentBreedName : favoriteBreedName }}
+          </strong>
+        </h2>
       </mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <img class="rounded" nz-image [nzSrc]="favoriteBreedImage" mat-card-lg-image nzDisablePreview nzPlaceholder="../../../../../assets/img/logo-blur.jpeg">
+    </mat-card-title-group>
+    <mat-card-actions>
+      <button mat-button (click)="toggleFavoriteBreed()">
+        Remove Favorite
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

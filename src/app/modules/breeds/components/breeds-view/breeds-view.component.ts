@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-breeds-view',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreedsViewComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  existsFavoriteBreed(): boolean {
+    return localStorage.getItem('existsFavoriteBreed') === 'true';
+  }
 }

@@ -13,6 +13,7 @@ import {BreedImagesService} from "../../core/services/breed-images/breed-images.
 import {MatButtonModule} from "@angular/material/button";
 import {BreedsCommonModule} from "../common/breeds-common/breeds-common.module";
 import {OverlayModule} from "@angular/cdk/overlay";
+import {NzImageModule} from "ng-zorro-antd/image";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {OverlayModule} from "@angular/cdk/overlay";
     BreedsRoutingModule,
     BreedsCommonModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    NzImageModule
   ],
   exports: [],
   providers: [BreedsService, BreedImagesService]

@@ -1,6 +1,6 @@
 <div class="breed-item-component">
-  <mat-card (click)="showBreedInfo()">
-    <mat-card-header>
+  <mat-card>
+    <mat-card-header (click)="showBreedInfo()">
       <img
         nz-image
         nzDisablePreview
@@ -18,7 +18,7 @@
         </strong>
       </mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content class="mt-3">
+    <mat-card-content class="mt-3" (click)="showBreedInfo()">
       <img
         mat-card-xl-image
         mat-card-image
@@ -32,7 +32,7 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-button>Set as Favorite</button>
+      <button mat-button (click)="toggleFavoriteBreed()">Set as Favorite</button>
     </mat-card-actions>
   </mat-card>
 </div>

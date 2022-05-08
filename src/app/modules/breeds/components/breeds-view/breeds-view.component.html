@@ -1,4 +1,4 @@
 <div class="breeds-view-component container">
-  <app-favorite-breed></app-favorite-breed>
+  <app-favorite-breed *ngIf="existsFavoriteBreed()"></app-favorite-breed>
   <app-breeds-list></app-breeds-list>
 </div>

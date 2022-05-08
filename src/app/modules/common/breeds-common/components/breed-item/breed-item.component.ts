@@ -2,6 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Breed} from "../../../../breeds/models/breed";
 import {BreedImagesService} from "../../../../../core/services/breed-images/breed-images.service";
 import {Router} from "@angular/router";
+import {
+  EXISTS_FAVORITE_BREED_LS, FAVORITE_BREED_IMAGE_LS, FAVORITE_BREED_LS,
+  FAVORITE_PARENT_BREED_LS
+} from "../../../../../core/constants/local-storage.constants";
 
 @Component({
   selector: 'app-breed-item',
@@ -28,7 +32,7 @@ export class BreedItemComponent implements OnInit {
     });
   }
 
-  showBreedInfo() {
+  showBreedInfo(): void {
     if (this.breed?.subBreeds?.length) {
       this.router.navigate([`${this.breed.name}`], {
         state: {
@@ -42,5 +46,19 @@ export class BreedItemComponent implements OnInit {
 
   getBreedImage(): string {
     return `${this.breed?.image}`;
+  }
+
+  toggleFavoriteBreed() {
+    localStorage.clear();
+    setTimeout(() => {
+      localStorage.setItem(EXISTS_FAVORITE_BREED_LS, 'true');
+      if (this.isSubBreed) {
+        localStorage.setItem(FAVORITE_PARENT_BREED_LS, `${this.parentBreed}`);
+      } else {
+        localStorage.removeItem(FAVORITE_PARENT_BREED_LS);
+      }
+      localStorage.setItem(FAVORITE_BREED_LS, `${this.breed?.name}`);
+      localStorage.setItem(FAVORITE_BREED_IMAGE_LS, `${this.breed?.image}`);
+    }, 200)
   }
 }
