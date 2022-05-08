@@ -39,4 +39,8 @@ export class BreedItemComponent implements OnInit {
       });
     }
   }
+
+  getBreedImage(): string {
+    return `${this.breed?.image}`;
+  }
 }

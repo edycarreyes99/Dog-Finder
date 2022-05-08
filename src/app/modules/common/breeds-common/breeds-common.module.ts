@@ -9,6 +9,7 @@ import {SubBreedsService} from "../../breeds/modules/sub-breeds/services/sub-bre
 import {BreedImagesService} from "../../../core/services/breed-images/breed-images.service";
 import {OverlayModule} from "@angular/cdk/overlay";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {NzImageModule} from "ng-zorro-antd/image";
 
 
 
@@ -25,7 +26,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NzImageModule
   ],
   providers: []
 })
